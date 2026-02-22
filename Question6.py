@@ -1,17 +1,48 @@
-# Program: Largest of three numbers
-# Description: Finds the largest among three numbers
+# ---------------------------------------------------
+# Question 6: Grade Calculator
+# Take marks of 5 subjects (out of 100)
+# Display total, percentage, grade and pass/fail
+# Pass if all subjects >= 40
+# ---------------------------------------------------
 
 try:
-    a = int(input())                # take first number
-    b = int(input())                # take second number
-    c = int(input())                # take third number
+    marks = []
+    total = 0
+    pass_status = True
 
-    if a >= b and a >= c:           # check if a is largest
-        print(a)
-    elif b >= a and b >= c:         # check if b is largest
-        print(b)
+    # Taking marks
+    for i in range(1, 6):
+        m = float(input(f"Enter marks for subject {i}: "))
+        marks.append(m)
+        total += m
+        if m < 40:
+            pass_status = False
+
+    percentage = total / 5
+
+    # Grade calculation
+    if percentage >= 90:
+        grade = "A+"
+    elif percentage >= 80:
+        grade = "A"
+    elif percentage >= 70:
+        grade = "B"
+    elif percentage >= 60:
+        grade = "C"
+    elif percentage >= 50:
+        grade = "D"
     else:
-        print(c)                    # otherwise c is largest
+        grade = "F"
+
+    print("\n--- Result ---")
+    print("Total Marks:", total)
+    print("Percentage:", percentage)
+    print("Grade:", grade)
+
+    if pass_status:
+        print("Result: PASS")
+    else:
+        print("Result: FAIL")
 
 except:
-    print("Invalid Input")          # handle invalid input
+    print("Invalid input")

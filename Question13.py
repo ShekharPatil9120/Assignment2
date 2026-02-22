@@ -1,17 +1,21 @@
-# Program: Remove duplicates
-# Description: Removes duplicate elements from a list
+# ---------------------------------------------------
+# Question 13: Sum, Average, Max, Min
+# Bonus: Median and Mode
 
-n = int(input())                   # number of elements
-nums = []                          # list to store input
+numbers.sort()
 
-for i in range(n):                 # take list input
-    nums.append(int(input()))
+# Median
+if count % 2 == 1:
+    median = numbers[count // 2]
+else:
+    median = (numbers[count//2 - 1] + numbers[count//2]) / 2
 
-unique = []                        # list for unique elements
+# Mode
+frequency = {}
+for num in numbers:
+    frequency[num] = frequency.get(num, 0) + 1
 
-for num in nums:                   # check each element
-    if num not in unique:          # if not already present
-        unique.append(num)
+mode = max(frequency, key=frequency.get)
 
-for val in unique:                 # print unique elements
-    print(val)
+print("Median:", median)
+print("Mode:", mode)

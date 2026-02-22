@@ -1,11 +1,31 @@
-# Program: Count even numbers
-# Description: Counts even numbers from 1 to n
+# ---------------------------------------------------
+# Question 8: Leap Year Checker
+# A year is a leap year if:
+# - Divisible by 4 AND
+# - Not divisible by 100 OR divisible by 400
+# Display result along with reason
+# ---------------------------------------------------
 
-n = int(input())              # take input
-count = 0                     # initialize counter
+try:
+    # Taking input from user
+    year = int(input("Enter a year: "))
 
-for i in range(1, n + 1):     # loop from 1 to n
-    if i % 2 == 0:            # check even
-        count += 1            # increase count
+    # Checking leap year conditions
+    if year % 400 == 0:
+        print(f"{year} is a Leap Year")
+        print("Reason: Divisible by 400")
 
-print(count)                  # display result
+    elif year % 100 == 0:
+        print(f"{year} is NOT a Leap Year")
+        print("Reason: Divisible by 100 but not by 400")
+
+    elif year % 4 == 0:
+        print(f"{year} is a Leap Year")
+        print("Reason: Divisible by 4 and not by 100")
+
+    else:
+        print(f"{year} is NOT a Leap Year")
+        print("Reason: Not divisible by 4")
+
+except:
+    print("Invalid input! Please enter a valid year.")

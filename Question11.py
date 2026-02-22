@@ -1,18 +1,44 @@
-# Program: Prime number check
-# Description: Checks whether a number is prime
+# ---------------------------------------------------
+# Question 11: Number Pattern Printer
+# User chooses pattern and height
+# ---------------------------------------------------
 
-num = int(input())                 # take number input
-is_prime = True                    # assume number is prime
+try:
+    height = int(input("Enter height: "))
+    print("Choose Pattern (1-4):")
+    pattern = int(input("Enter pattern number: "))
 
-if num <= 1:                       # numbers <= 1 are not prime
-    is_prime = False
-else:
-    for i in range(2, int(num ** 0.5) + 1):  # check up to square root
-        if num % i == 0:           # if divisible
-            is_prime = False       # not prime
-            break
+    if pattern == 1:
+        for i in range(1, height + 1):
+            for j in range(1, i + 1):
+                print(j, end=" ")
+            print()
 
-if is_prime:                       # print result
-    print("Prime")
-else:
-    print("Not Prime")
+    elif pattern == 2:
+        for i in range(1, height + 1):
+            for j in range(i):
+                print(i, end=" ")
+            print()
+
+    elif pattern == 3:
+        for i in range(height, 0, -1):
+            for j in range(i, 0, -1):
+                print(j, end=" ")
+            print()
+
+    elif pattern == 4:
+        # Center pyramid pattern
+        for i in range(1, height + 1):
+            for space in range(height - i):
+                print(" ", end="")
+            for j in range(1, i + 1):
+                print(j, end="")
+            for j in range(i - 1, 0, -1):
+                print(j, end="")
+            print()
+
+    else:
+        print("Invalid pattern")
+
+except:
+    print("Invalid input")

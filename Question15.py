@@ -1,19 +1,29 @@
-# Program: Second largest number
-# Description: Finds second largest element in a list
+# ---------------------------------------------------
+# Question 15: Prime Number Checker
+# ---------------------------------------------------
 
-n = int(input())                   # number of elements
-nums = []                          # list to store numbers
+def is_prime(num):
+    if num <= 1:
+        return False
+    for i in range(2, int(num**0.5) + 1):
+        if num % i == 0:
+            return False
+    return True
 
-for i in range(n):                 # take input
-    nums.append(int(input()))
+try:
+    number = int(input("Enter a number: "))
+    if is_prime(number):
+        print(number, "is PRIME")
+    else:
+        print(number, "is NOT PRIME")
 
-largest = second = -999999         # initialize values
+    start = int(input("Enter start range: "))
+    end = int(input("Enter end range: "))
 
-for num in nums:                   # find largest and second largest
-    if num > largest:
-        second = largest
-        largest = num
-    elif num > second and num != largest:
-        second = num
+    print("Prime numbers in range:")
+    for n in range(start, end + 1):
+        if is_prime(n):
+            print(n, end=" ")
 
-print(second)                      # display second largest
+except:
+    print("Invalid input")

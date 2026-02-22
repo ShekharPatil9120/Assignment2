@@ -1,13 +1,14 @@
-# Program: Fibonacci series
-# Description: Prints first n Fibonacci numbers
+# ---------------------------------------------------
+# Question 12: Multiplication Table Generator
+# ---------------------------------------------------
 
-n = int(input())                   # take number of terms
+try:
+    number = int(input("Enter number: "))
+    end_range = int(input("Enter range: "))
 
-a = 0                              # first number
-b = 1                              # second number
+    print(f"\nMultiplication Table of {number}")
+    for i in range(1, end_range + 1):
+        print(f"{number} x {i} = {number * i}")
 
-for i in range(n):                 # loop n times
-    print(a)                       # print current term
-    c = a + b                      # next term
-    a = b                          # update values
-    b = c
+except:
+    print("Invalid input")

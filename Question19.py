@@ -1,14 +1,30 @@
-# Program: Decimal to binary
-# Description: Converts decimal number to binary
+# ---------------------------------------------------
+# Question 19: Text Analysis
+# ---------------------------------------------------
 
-num = int(input())                     # take input
-binary = ""                            # store binary
+text = input("Enter text: ")
+words = text.split()
 
-if num == 0:                           # special case
-    binary = "0"
-else:
-    while num > 0:                     # convert using division
-        binary = str(num % 2) + binary
-        num = num // 2
+vowels = "aeiouAEIOU"
+vowel_count = 0
+consonant_count = 0
 
-print(binary)                          # display binary
+for ch in text:
+    if ch.isalpha():
+        if ch in vowels:
+            vowel_count += 1
+        else:
+            consonant_count += 1
+
+word_freq = {}
+for word in words:
+    word = word.lower()
+    word_freq[word] = word_freq.get(word, 0) + 1
+
+print("\nWords:", len(words))
+print("Vowels:", vowel_count)
+print("Consonants:", consonant_count)
+print("Reversed:", text[::-1])
+print("Without vowels:", "".join([c for c in text if c not in vowels]))
+print("Longest word:", max(words, key=len) if words else "")
+print("Word Frequency:", word_freq)

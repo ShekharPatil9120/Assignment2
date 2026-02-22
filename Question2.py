@@ -1,16 +1,40 @@
-# Program: Factorial of a number
-# Description: Finds the factorial using a loop
+# ---------------------------------------------------
+# Question 2: Simple Calculator
+# Ask user for two numbers and perform:
+# Addition, Subtraction, Multiplication,
+# Division, Modulus, Exponent
+# ---------------------------------------------------
 
+# Taking input from user
 try:
-    num = int(input())          # take number input
+    num1 = float(input("Enter first number: "))
+    num2 = float(input("Enter second number: "))
 
-    if num < 0:                 # check for negative number
-        print("Invalid Input")  # factorial not defined for negative
+    print("\nResults:")
+
+    # Addition
+    print(f"{num1} + {num2} = {num1 + num2}")
+
+    # Subtraction
+    print(f"{num1} - {num2} = {num1 - num2}")
+
+    # Multiplication
+    print(f"{num1} * {num2} = {num1 * num2}")
+
+    # Division (check for zero)
+    if num2 != 0:
+        print(f"{num1} / {num2} = {num1 / num2}")
     else:
-        fact = 1                # initialize factorial value
-        for i in range(1, num + 1):  # loop from 1 to num
-            fact = fact * i     # multiply each number
-        print(fact)             # display result
+        print("Division by zero is not allowed")
+
+    # Modulus (check for zero)
+    if num2 != 0:
+        print(f"{num1} % {num2} = {num1 % num2}")
+    else:
+        print("Modulus by zero is not allowed")
+
+    # Exponent
+    print(f"{num1} ^ {num2} = {num1 ** num2}")
 
 except:
-    print("Invalid Input")      # handle invalid input
+    print("Invalid input! Please enter numeric values only.")
